@@ -1,5 +1,5 @@
 {
-  "executionRoleArn": "arn:aws:iam::397119409634:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::532296452329:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "portMappings": [
@@ -19,7 +19,7 @@
         },
         {
           "name": "RDS_HOSTNAME",
-          "value": "database-blacklist.c58kyug6sumo.us-east-2.rds.amazonaws.com"
+          "value": "database-blacklist.c16e682iai0m.us-west-2.rds.amazonaws.com"
         },
         {
           "name": "RDS_PASSWORD",
@@ -45,7 +45,7 @@
           "mode": "non-blocking",
           "awslogs-create-group": "true",
           "max-buffer-size": "25m",
-          "awslogs-region": "us-east-2",
+          "awslogs-region": "us-west-2",
           "awslogs-stream-prefix": "ecs"
         }
       }

@@ -10,21 +10,21 @@ phases:
       - echo Running Python unit tests...
       - python -m unittest discover -s Blacklists -v
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 397119409634.dkr.ecr.us-east-2.amazonaws.com
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 532296452329.dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t blacklist_app ./Blacklists
-      - docker tag blacklist_app:latest 397119409634.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest
+      - docker tag blacklist_app:latest 532296452329.dkr.ecr.us-west-2.amazonaws.com/blacklist_app:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 397119409634.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest
+      - docker push 532296452329.dkr.ecr.us-west-2.amazonaws.com/blacklist_app:latest
       - echo Writing Image Definitions file...
-      - printf '[{"name":"Container-app-blacklist","imageUri":"397119409634.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest"}]' > imagedefinitions.json
-      - printf '{"ImageURI":"397119409634.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest"}' > imageDetail.json
+      - printf '[{"name":"Container-app-blacklist","imageUri":"532296452329.dkr.ecr.us-west-2.amazonaws.com/blacklist_app:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"532296452329.dkr.ecr.us-west-2.amazonaws.com/blacklist_app:latest"}' > imageDetail.json
       - cat imagedefinitions.json
 artifacts:
   files:
