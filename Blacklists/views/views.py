@@ -1,5 +1,7 @@
 import uuid
 import re
+import os
+
 from config import Config
 
 from flask import request, abort, make_response, Response
@@ -17,6 +19,7 @@ class HeaderResource(Resource):
         """
         Valida el header de la autorización y retorna 200 d si el token es válido.
         """
+        print(f"License key: {os.getenv('NEW_RELIC_LICENSE_KEY')}")
         authorization_header = request.headers.get('Authorization')
         
         try:
@@ -39,7 +42,7 @@ class HeaderResource(Resource):
 class BlacklistView(HeaderResource):
 
     def post(self):
-
+        print(f"License key: {os.getenv('NEW_RELIC_LICENSE_KEY')}")
         self.authorize_request()
         data = request.get_json()
 
@@ -96,7 +99,7 @@ class BlacklistDetailView(HeaderResource):
         """
         Retorna una cuenta del balcklist, solo un usuario autorizado puede realizar esta operación.
         """
-
+        print(f"License key: {os.getenv('NEW_RELIC_LICENSE_KEY')}")
         self.authorize_request()
         try:
             if not email:

@@ -36,7 +36,12 @@
         {
           "name": "RDS_DB_NAME",
           "value": "postgres"
+        },
+        {
+          "name": "NEW_RELIC_LICENSE_KEY",
+          "value": "da9e5eddde8aa5cfdb21bc94f5cd50e7FFFFNRAL"
         }
+
       ],
       "logConfiguration": {
         "logDriver": "awslogs",

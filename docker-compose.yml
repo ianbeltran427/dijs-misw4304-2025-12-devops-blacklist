@@ -20,7 +20,7 @@ services:
     image: blacklist
     container_name: blacklist
     build:
-      context: ./blacklists
+      context: ./Blacklists
     environment:
       DB_USER: postgres
       DB_PASSWORD: postgres
@@ -28,6 +28,9 @@ services:
       DB_PORT: 5432
       DB_NAME: user
       AUTH_TOKEN: qwertyuiopasdfghjklzxcvbnm123456
+      NEW_RELIC_LICENSE_KEY: da9e5eddde8aa5cfdb21bc94f5cd50e7FFFFNRAL
+    dns:
+      - 8.8.8.8
     networks:
       - blacklist_net
       - app_net
@@ -36,7 +39,7 @@ services:
     depends_on:
       blacklist_db:
         condition: service_healthy
-      
+
 networks:
   app_net:
     name: app_net
